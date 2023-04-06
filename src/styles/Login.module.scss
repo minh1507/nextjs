@@ -1,0 +1,109 @@
+.main {
+  background: linear-gradient(
+        45deg,
+        rgb(26, 1, 117) 0%,
+        rgba(225, 5, 34, 0) 70%
+      )
+      repeat scroll 0% 0%,
+    linear-gradient(135deg, rgb(225, 5, 152) 10%, rgba(49, 5, 209, 0) 80%)
+      repeat scroll 0% 0%,
+    linear-gradient(
+        225deg,
+        hsla(179, 81%, 45%, 1) 10%,
+        rgba(10, 219, 216, 0) 80%
+      )
+      repeat scroll 0% 0%,
+    rgba(0, 0, 0, 0)
+      linear-gradient(315deg, rgb(189, 5, 245) 100%, rgba(9, 245, 5, 0) 70%)
+      repeat scroll 0% 0%;
+}
+
+.card {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardChild {
+  padding: 16px 16px;
+
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+  background-color: white;
+  border-radius: 5px 5px;
+}
+
+.cardChild label {
+  display: block;
+}
+
+.cardChild input {
+  padding: 4px 8px;
+
+  width: 100%;
+
+  outline: none;
+
+  border: 1px solid gainsboro;
+}
+
+.cardChild button {
+  margin-top: 12px;
+  padding: 4px 8px;
+
+  width: 100%;
+
+  background-color: lightgray;
+
+  border: none;
+  border-radius: 4px 4px;
+
+  cursor: pointer;
+}
+
+.cardChild button:hover {
+  background-color: lightsteelblue;
+}
+
+.cardChild > div:nth-of-type(2){
+  margin-top: 8px;
+}
+
+.cardChild > h3{
+  text-align: center;
+  color: rgb(52, 52, 194);
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+.success {
+  background: #3cff00 !important;
+}
+
+.error {
+  background: #ff0000 !important;
+}
+
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  color: #10171D; /* #10171D */
+  font-size: 0.875rem !important;
+}
+
+
+@media screen and (min-width: 768px) {
+  .cardChild{
+    width: 25%;
+    min-width: 300px;
+  }
+}
+
+@media screen and (min-width: 468px) and (max-width:767px) {
+  .cardChild{
+    width: 40%;
+    min-width: 300px;
+  }
+}

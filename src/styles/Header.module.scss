@@ -1,0 +1,12 @@
+.headers {
+  height: 50px;
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.headers > h6 {
+  margin: 0;
+}

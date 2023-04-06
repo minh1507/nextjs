@@ -1,0 +1,59 @@
+.detail {
+  display: inline-block;
+
+  padding: 16px 16px;
+
+  margin-top: 16px;
+  margin-left: 16px;
+
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.detail > p {
+  margin: 0;
+}
+
+.detailBottom {
+  display: inline-block;
+
+  margin-top: 16px;
+  margin-left: 16px;
+
+  padding: 4px 8px;
+
+  background-color: lightgray;
+
+  border: none;
+  border-radius: 4px 4px;
+
+  cursor: pointer;
+}
+
+.itemdetail {
+  width: 300px;
+  height: 225px;
+  position: relative;
+}
+
+.detailBottom > button {
+  background-color: transparent;
+  border: none;
+}
+
+.detailBottom:hover {
+  background-color: lightsteelblue;
+}
+
+.headers {
+  height: 50px;
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.headers > h6 {
+  margin: 0;
+}
