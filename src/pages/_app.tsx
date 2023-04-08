@@ -7,8 +7,10 @@ import Route from "next/router";
 import { SessionProvider } from "next-auth/react";
 import Header from "@/components/header";
 import Toast from "@/components/toast";
+import { wrapper } from "@/store/index";
+import { Provider } from "react-redux";
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -36,19 +38,23 @@ export default function App({ Component, pageProps }: AppProps) {
       });
     };
   }, []);
+  const { store, props } = wrapper.useWrappedStore(pageProps);
 
   return (
-    <>
+    <Provider store={store}>
       {loading && (
         <section className="loading">
           <div className="lds-hourglass"></div>
         </section>
       )}
       <SessionProvider>
-        <Toast/>
-        <Header/>
+        <Toast />
+        <Header />
+
         <Component {...pageProps} />
       </SessionProvider>
-    </>
+    </Provider>
   );
 }
+
+export default App;

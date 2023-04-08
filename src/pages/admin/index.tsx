@@ -13,7 +13,9 @@ import { toast } from "react-toastify";
 
 import useAxiosAuth from "@/common/hook/useAxiosAuth";
 import useAxiosFormData from "@/common/hook/useAxiosAuthFormData";
-import axios from "axios";
+import { wrapper } from "@/store/index";
+import { addCat } from "@/store/cat/action";
+import { useSelector, useDispatch } from "react-redux";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +27,7 @@ export default function Home({ ...HomeProps }: HomeProps) {
   const [init, setInit] = useState(HomeProps.posts);
   const axiosAuth = useAxiosAuth();
   const axiosFormData = useAxiosFormData();
+  const dispatch = useDispatch();
   const [input, setInput] = useState({
     name: "",
     age: "",
@@ -32,7 +35,10 @@ export default function Home({ ...HomeProps }: HomeProps) {
     fileName: "",
   });
   const [file, setFile] = useState("Chọn ảnh");
+ 
+  const cats = useSelector((state:any) => state.cats.cats);
 
+  // console.log(cats)
   const change_input = (e: any, name: string) => {
     setInput({
       ...input,
@@ -112,7 +118,7 @@ export default function Home({ ...HomeProps }: HomeProps) {
 
   const reload = async () => {
     let response = await GetCat();
-    setInit(response.data);
+    dispatch(addCat(response.data));
   };
 
   const del = async (id: number) => {
@@ -193,9 +199,9 @@ export default function Home({ ...HomeProps }: HomeProps) {
               Lưu
             </button>
           </section>
-          {init.length > 0 && (
+          {cats.length > 0 && (
             <ul>
-              {init.map((post: any) => {
+              {cats.map((post: any) => {
                 return (
                   <li className={styles.card_element} key={post.id}>
                     {post.name}{" "}
@@ -230,12 +236,12 @@ export default function Home({ ...HomeProps }: HomeProps) {
   );
 }
 
-export async function getStaticProps({ req, res }: any) {
+export const getStaticProps = wrapper.getStaticProps((store:any) => async () => {
   const response = await GetCat();
-
+  store.dispatch(addCat(response.data));
   return {
     props: {
-      posts: response.data,
+      // posts: response.data,
     },
   };
-}
+})
