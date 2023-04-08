@@ -1,14 +1,14 @@
-import { catsActionTypes } from "./action";
+import { usersActionTypes } from "./action";
 
 const catsInitialState = {
-  cats: [],
+  user: [],
   // inforCat: any
 };
 
 export default function reducer(state = catsInitialState, action: any) {
   switch (action.type) {
-    case catsActionTypes.ADD_CAT: {
-      return { ...state, cats: action.cat };
+    case usersActionTypes.ADD_USER: {
+      return { ...state, user: action.user };
     }
     default:
       return state;

@@ -2,9 +2,10 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { HYDRATE, createWrapper } from 'next-redux-wrapper'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import cats from '@/store/cat/reducer'
+import user from '@/store/user/reducer'
 
 const combinedReducer = combineReducers({
-  cats
+  cats,user
 })
 
 const masterReducer = (state:any, action:any) => {  
@@ -13,6 +14,9 @@ const masterReducer = (state:any, action:any) => {
       ...state,
       cats: {
         cats: [...action.payload.cats.cats]
+      },
+      user: {
+        user: [...action.payload.user.user]
       }
     }
     return nextState

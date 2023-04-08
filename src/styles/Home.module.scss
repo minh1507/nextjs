@@ -1,25 +1,37 @@
 .card {
   min-height: 70vh;
-  padding: 16px 0;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  gap: 16px;
+  padding: 16px 16px;
 }
 
 .card input {
   padding: 4px 8px;
 
+  width: 100%;
   outline: none;
 
   border: 1px solid gainsboro;
 }
 
+.card  > div {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+}
 .card > section {
+  position: fixed;
+  z-index: 3;
+
+  width: 30%;
+  min-width: 300px;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   padding: 16px 16px;
 
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -52,6 +64,14 @@
   background-color: lightsteelblue;
 }
 
+.card > section > div:nth-of-type(2) {
+  margin-top: 8px;
+}
+
+.card > section > div:nth-of-type(3) {
+  margin-top: 8px;
+}
+
 .card li {
   margin-bottom: 8px;
   padding: 8px 16px;
@@ -60,14 +80,6 @@
 
 .card li:nth-last-child(1) {
   margin-bottom: 0;
-}
-
-.card > section > div:nth-of-type(2) {
-  margin-top: 8px;
-}
-
-.card > section > div:nth-of-type(3) {
-  margin-top: 8px;
 }
 
 .card label {
@@ -80,6 +92,7 @@
   border-radius: 4px 4px;
 
   margin: 0;
+  margin-top: 16px;
   padding: 16px 16px;
 
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -139,9 +152,22 @@
   min-height: 35px;
 }
 
-
 .files img {
   width: 100%;
   height: auto;
 }
 
+.btn{
+  border: none;
+  padding: 8px 16px;
+  background-color: lightblue;
+  border-radius: 4px 4px;
+}
+
+.btn1{
+  border: none;
+  padding: 8px 16px;
+  background-color: lightblue;
+  border-radius: 4px 4px;
+  margin-left: 16px;
+}
